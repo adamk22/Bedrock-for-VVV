@@ -23,7 +23,7 @@ touch ${VVV_PATH_TO_SITE}/log/access.log
 # Install and configure the latest stable version of WordPress
 if [[ ! -f "${VVV_PATH_TO_SITE}/public_html/web/wp/wp-load.php" ]]; then
     echo "Downloading WordPress..."
-  noroot composer create-project roots/bedrock bedrock-test
+  noroot cd .. && composer create-project roots/bedrock public_html
   noroot wp core ${INSTALL_COMMAND} --url="${DOMAIN}" --quiet --title="${SITE_TITLE}" --admin_name=admin --admin_email="admin@local.test" --admin_password="password"
 	# noroot wp core download --version="${WP_VERSION}"
 fi
