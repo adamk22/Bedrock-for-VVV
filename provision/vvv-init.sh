@@ -1,5 +1,4 @@
-
-project="project-name"
+project="${VVV_SITE_NAME}"
 
 echo "Commencing Bedrock Setup"
 
