@@ -1,6 +1,6 @@
 # Bedrock for VVV 2.0+
 
-A provisioning script that works with VVV 2.0+
+A provisioning script for Bedrock that works with VVV 2.0+
 
 ## Overview
 
@@ -24,7 +24,7 @@ my-site:
 -   After provisioning, open up `/public_html/.env` and fill in the correct credentials and salt keys.
 -   Go to http://my-site.test/wp/wp-admin to start configuring your WordPress instance.
 
-### 3. TODO
+# TODO
 
 -   Optional: Ability to add a theme repository that will install the theme during provisioning
 -   Optional: Ability to add plugins/mu-plugins
