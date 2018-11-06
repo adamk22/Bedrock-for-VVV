@@ -28,13 +28,13 @@ if [[ ! -f "${VVV_PATH_TO_SITE}/public_html/web/wp/wp-load.php" ]]; then
 	# noroot wp core download --version="${WP_VERSION}"
 fi
 
-# if [[ ! -f "${VVV_PATH_TO_SITE}/public_html/web/wp/wp-config.php" ]]; then
-#   echo "Configuring WordPress Stable..."
-#   noroot wp core config --dbname="${DB_NAME}" --dbuser=wp --dbpass=wp --quiet --extra-php <<PHP
-# define( 'WP_DEBUG', true );
-# define( 'SCRIPT_DEBUG', true );
-# PHP
-# fi
+if [[ ! -f "${VVV_PATH_TO_SITE}/public_html/web/wp/wp-config.php" ]]; then
+  echo "Configuring WordPress Stable..."
+  noroot wp core config --dbname="${DB_NAME}" --dbuser=wp --dbpass=wp --quiet --extra-php <<PHP
+define( 'WP_DEBUG', true );
+define( 'SCRIPT_DEBUG', true );
+PHP
+fi
 
 # if ! $(noroot wp core is-installed); then
 #   echo "Installing WordPress Stable..."
