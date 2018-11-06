@@ -1,129 +1,30 @@
-# VVV Custom site template
-For when you just need a simple dev site
+# Bedrock for VVV 2.0+
+
+A provisioning script that works with VVV 2.0+
 
 ## Overview
-This template will allow you to create a WordPress dev environment using only `vvv-custom.yml`.
 
-The supported environments are:
-- A single site
-- A subdomain multisite
-- A subdirectory multisite
+This template allows you to create a Bedrock configured WordPress instance. This template will create an empty db, install Bedrock and configure Nginx.
 
 # Configuration
 
-### The minimum required configuration:
+### 1. Adding site:
+
+Add this to your `vvv-custom.yml` and run `vagrant up --provision` or `vagrant reload --provision` depending on your vagrant machine state.
 
 ```
 my-site:
-  repo: https://github.com/Varying-Vagrant-Vagrants/custom-site-template
-  hosts:
-    - my-site.test
+    repo: https://github.com/adamk22/WP-Bedrock-VVV-2.0-Provisioning.git
+    hosts:
+        - my-site.test
 ```
-| Setting    | Value       |
-|------------|-------------|
-| Domain     | my-site.test |
-| Site Title | my-site.test |
-| DB Name    | my-site     |
-| Site Type  | Single      |
-| WP Version | Latest      |
 
-### Minimal configuration with custom domain and WordPress Nightly:
+### 2. Configuring DB
 
-```
-my-site:
-  repo: https://github.com/Varying-Vagrant-Vagrants/custom-site-template
-  hosts:
-    - foo.test
-  custom:
-    wp_version: nightly
-```
-| Setting    | Value       |
-|------------|-------------|
-| Domain     | foo.test     |
-| Site Title | foo.test     |
-| DB Name    | my-site     |
-| Site Type  | Single      |
-| WP Version | Nightly     |
+-   After provisioning, open up `/public_html/.env` and fill in the correct credentials and salt keys.
+-   Go to http://my-site.test/wp/wp-admin to start configuring your WordPress instance.
 
-### WordPress Multisite with Subdomains:
+### 3. TODO
 
-```
-my-site:
-  repo: https://github.com/Varying-Vagrant-Vagrants/custom-site-template
-  hosts:
-    - multisite.test
-    - site1.multisite.test
-    - site2.multisite.test
-  custom:
-    wp_type: subdomain
-```
-| Setting    | Value               |
-|------------|---------------------|
-| Domain     | multisite.test      |
-| Site Title | multisite.test      |
-| DB Name    | my-site             |
-| Site Type  | Subdomain Multisite |
-
-### WordPress Multisite with Subdirectory:
-
-```
-my-site:
-  repo: https://github.com/Varying-Vagrant-Vagrants/custom-site-template
-  hosts:
-    - multisite.test
-  custom:
-    wp_type: subdirectory
-```
-| Setting    | Value                  |
-|------------|------------------------|
-| Domain     | multisite.test         |
-| Site Title | multisite.test         |
-| DB Name    | my-site                |
-| Site Type  | Subdirectory Multisite |
-
-## Configuration Options
-
-```
-hosts:
-    - foo.test
-    - bar.test
-    - baz.test
-```
-Defines the domains and hosts for VVV to listen on. 
-The first domain in this list is your sites primary domain.
-
-```
-custom:
-    site_title: My Awesome Dev Site
-```
-Defines the site title to be set upon installing WordPress.
-
-```
-custom:
-    wp_version: 4.6.4
-```
-Defines the WordPress version you wish to install.
-Valid values are:
-- nightly
-- latest
-- a version number
-
-Older versions of WordPress will not run on PHP7, see this page on [how to change PHP version per site](https://varyingvagrantvagrants.org/docs/en-US/adding-a-new-site/changing-php-version/).
-
-```
-custom:
-    wp_type: single
-```
-Defines the type of install you are creating.
-Valid values are:
-- single
-- subdomain
-- subdirectory
-
-```
-custom:
-    db_name: super_secet_db_name
-```
-Defines the DB name for the installation.
-
-
+-   Optional: Ability to add a theme repository that will install the theme during provisioning
+-   Optional: Ability to add plugins/mu-plugins
