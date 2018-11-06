@@ -31,7 +31,9 @@ fi
 
 # The Vagrant site setup script will restart Nginx for us
 
-echo "$project Bedrock site now installed";
+echo "$project Bedrock is now installed";
+
+echo "Configuring Nginx";
 
 cp -f "${VVV_PATH_TO_SITE}/provision/vvv-nginx.conf.tmpl" "${VVV_PATH_TO_SITE}/provision/vvv-nginx.conf"
 
@@ -42,3 +44,5 @@ else
     sed -i "s#{{TLS_CERT}}##" "${VVV_PATH_TO_SITE}/provision/vvv-nginx.conf"
     sed -i "s#{{TLS_KEY}}##" "${VVV_PATH_TO_SITE}/provision/vvv-nginx.conf"
 fi
+
+echo "Nginx configured!";
