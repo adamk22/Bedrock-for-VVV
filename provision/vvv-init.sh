@@ -22,12 +22,13 @@ then
   # TODO: change eval to cd ${VVV_PATH_TO_SITE}/public_html or use mkdir command
   eval cd .. && composer create-project roots/bedrock public_html
 
-  # Download Sage
+  # Start download theme
   echo "Downloading Theme"
   eval cd public_html/web/app/themes
   git clone https://github.com/adamk22/base-camp.git $project-theme
   eval cd $project-theme
   composer install && npm install
+  # End download theme
 fi
 
 # The Vagrant site setup script will restart Nginx for us
