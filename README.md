@@ -24,6 +24,10 @@ my-site:
 -   After provisioning, open up `/public_html/.env` and fill in the correct credentials and salt keys.
 -   Go to http://my-site.test/wp/wp-admin to start configuring your WordPress instance.
 
+### 3. Configuring Theme
+
+-   [See this repo](https://github.com/adamk22/base-camp)
+
 # TODO
 
 -   Optional: Ability to add a theme repository that will install the theme during provisioning
