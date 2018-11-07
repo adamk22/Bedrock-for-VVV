@@ -23,10 +23,11 @@ then
   eval cd .. && composer create-project roots/bedrock public_html
 
   # Download Sage
-  # echo "Downloading Sage"
-  # cd public_html/web/app/themes
-  #   git clone https://github.com/roots/sage.git --branch 8.5.3 --single-branch
-  #   mv sage $project
+  echo "Downloading Theme"
+  cd public_html/web/app/themes
+    git clone https://github.com/adamk22/base-camp.git $project-theme
+    cd $project-theme
+    composer install && npm install
 fi
 
 # The Vagrant site setup script will restart Nginx for us
