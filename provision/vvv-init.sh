@@ -24,10 +24,10 @@ then
 
   # Download Sage
   echo "Downloading Theme"
-  cd public_html/web/app/themes
-    git clone https://github.com/adamk22/base-camp.git $project-theme
-    cd $project-theme
-    composer install && npm install
+  eval cd public_html/web/app/themes
+  git clone https://github.com/adamk22/base-camp.git $project-theme
+  eval cd $project-theme
+  composer install && npm
 fi
 
 # The Vagrant site setup script will restart Nginx for us
