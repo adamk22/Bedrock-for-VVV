@@ -26,12 +26,12 @@ my-site:
 
 ### 3. Configuring Theme
 
-This provisioning script automatically installs a customized forked [starter-theme](https://github.com/adamk22/base-camp) of [Base Camp](https://github.com/suomato/base-camp). If you wish to use your own, just delete the theme from the theme folder or comment out/remove line 26 to 30 of `provision/vvv-init.sh`.
+This provisioning script automatically installs a customized forked [starter-theme](https://github.com/adamk22/base-camp) of [Base Camp](https://github.com/suomato/base-camp). If you wish to use your own, just delete the theme from the theme folder or comment out/remove line 26 to 30 of `provision/vvv-init.sh` before running the reprovision command.
 
--   [See this repo](https://github.com/adamk22/base-camp)
+-   [See this repo for instructions](https://github.com/adamk22/base-camp)
 
 # TODO
 
 -   Ability to add a theme repository that will install the theme during provisioning
 -   Ability to add plugins/mu-plugins
--   Make base theme opptional
+-   Make base theme optional
